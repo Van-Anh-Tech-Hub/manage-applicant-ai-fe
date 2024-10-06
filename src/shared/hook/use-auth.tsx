@@ -9,11 +9,13 @@ import {
 } from 'react'
 import { useMutation, useQuery } from '@apollo/client'
 import { usePathname, useRouter } from 'next/navigation'
+import { notification } from 'antd'
 
 import { GET_INFO_USER, LOGIN } from '#/shared/graphql/queries'
+import { I_User } from '../typescript'
 
 interface AuthContextType {
-  user: any
+  user: I_User | null
   loading: boolean
   handleLogin: (infoLogin: any) => Promise<any>
   handleLogout: () => void
@@ -25,7 +27,7 @@ export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState<I_User | null>(null)
   const [login] = useMutation(LOGIN)
   const { refetch, loading: queryLoading } = useQuery(GET_INFO_USER)
   const pathname = usePathname()
@@ -57,6 +59,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         localStorage.setItem('auth', res.data.login.token)
         await refetchUser()
       }
+      res.data.login
+        ? notification.success({
+            message: 'Thành công',
+            description: 'Đăng nhập thành công',
+          })
+        : notification.error({
+            message: 'Thất bại',
+            description: 'Đăng nhập thất bại',
+          })
       return res.data.login
     } catch (error) {
       console.error('Login failed:', error)

@@ -6,6 +6,16 @@ import { FaBuildingUser } from 'react-icons/fa6'
 import { IoMdSettings } from 'react-icons/io'
 import { MdDashboard } from 'react-icons/md'
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
+import { CiCircleCheck } from 'react-icons/ci'
+import { SiReaddotcv } from 'react-icons/si'
+import { IoIosCamera } from 'react-icons/io'
+import { FaPlus } from 'react-icons/fa'
+import { FaUpload } from 'react-icons/fa'
+import { MdWork } from 'react-icons/md'
+import { RiBuildingFill } from 'react-icons/ri'
+import { AiFillContacts } from 'react-icons/ai'
+import { MdTipsAndUpdates } from 'react-icons/md'
+import { IoIosClose } from 'react-icons/io'
 
 export const Icons = {
   FiEye,
@@ -17,4 +27,14 @@ export const Icons = {
   Setting: IoMdSettings,
   Dashboard: MdDashboard,
   ArrowLeft: MdOutlineKeyboardArrowLeft,
+  Check: CiCircleCheck,
+  CV: SiReaddotcv,
+  Camera: IoIosCamera,
+  Plus: FaPlus,
+  Upload: FaUpload,
+  Work: MdWork,
+  Company: RiBuildingFill,
+  Contact: AiFillContacts,
+  Tip: MdTipsAndUpdates,
+  Close: IoIosClose,
 }
