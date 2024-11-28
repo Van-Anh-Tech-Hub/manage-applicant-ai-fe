@@ -1,9 +1,9 @@
 import { CandidateLayout } from '#/shared/layouts'
 
 export default function Layout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode
+    children: React.ReactNode
 }>) {
-  return <CandidateLayout>{children}</CandidateLayout>
+    return <CandidateLayout>{children}</CandidateLayout>
 }

@@ -3,11 +3,11 @@
 import { ListCV } from './list-cv'
 
 const CVUser = () => {
-  return (
-    <div className="w-4/6">
-      <ListCV />
-    </div>
-  )
+    return (
+        <div className="md:w-4/6  w-full">
+            <ListCV />
+        </div>
+    )
 }
 
 export default CVUser
