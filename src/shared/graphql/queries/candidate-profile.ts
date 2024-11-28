@@ -1,22 +1,19 @@
-import { gql } from '@apollo/client'
+import { gql } from '@apollo/client';
 
 export const UPDATE_CANDIDATE_PROFILE = gql`
-  mutation UpdateCandidateProfile(
-    $updateCandidateProfileId: ID!
-    $skills: [String]
-    $experience: String
-    $cvUrl: [String]
-  ) {
-    updateCandidateProfile(
-      id: $updateCandidateProfileId
-      skills: $skills
-      experience: $experience
-      cvUrl: $cvUrl
+    mutation UpdateCandidateProfile(
+        $updateCandidateProfileId: ID!
+        $resume: ResumeInput!
     ) {
-      _id
-      skills
-      experience
-      cvUrl
+        updateCandidateProfile(id: $updateCandidateProfileId, resume: $resume) {
+            id
+            resume {
+                cvLinks
+                skills {
+                    name
+                    experience
+                }
+            }
+        }
     }
-  }
-`
+`;
