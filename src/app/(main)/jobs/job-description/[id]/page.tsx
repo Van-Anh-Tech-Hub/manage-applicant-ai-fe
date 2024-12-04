@@ -7,10 +7,10 @@ import Link from 'next/link'
 import { useAuth } from '#/shared/hook/use-auth'
 import { APPLY_JOB } from '#/shared/graphql/queries/application-queries'
 import { useMutation } from '@apollo/client'
-import { notification, Modal, Upload, Button } from 'antd'
-import { UploadOutlined } from '@ant-design/icons'
+import { notification, Modal, Button } from 'antd'
 import axios from 'axios'
 import { PDFViewerWrapper } from '#/app/(main)/(user)/candidate/cv-user/PDFViewerWrapper'
+import Image from 'next/image'
 
 const JobDescription = ({ params }: { params: { id: string } }) => {
     const { user } = useAuth()
@@ -141,10 +141,12 @@ const JobDescription = ({ params }: { params: { id: string } }) => {
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-lg">
                     <div className="text-center">
-                        <img
+                        <Image
                             src={job?.company?.logoUrl || '/default-logo.png'}
                             alt="Company Logo"
                             className="w-16 h-16 mx-auto mb-4"
+                            width={64}
+                            height={64}
                         />
                         <h3 className="text-lg font-bold">{job?.company?.name}</h3>
                     </div>
