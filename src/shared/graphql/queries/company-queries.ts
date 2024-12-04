@@ -1,23 +1,56 @@
-import { gql } from '@apollo/client';
+import { gql } from '@apollo/client'
 
 export const GET_COMPANY = gql`
-    query GetCompany($id: ID!) {
-        getCompany(id: $id) {
-            _id
-            name
-            locationId
-        }
+  query GetCompanyById($companyId: ID!) {
+    getCompanyById(companyId: $companyId) {
+      id
+      name
+      location {
+        address
+      }
     }
+  }
 `;
 
+
 export const GET_ALL_COMPANIES = gql`
-    query GetAllCompanies {
-        getAllCompanies {
-            _id
-            name
-            location {
-                address
-            }
-        }
+  query GetAllCompanies {
+    getAllCompanies {
+      id
+      name
+      description
+      size
+      field
+      locationId
+      idDel
+        location {
+      _id
+      address
+      city
+      country
+      idDel
     }
+    }
+  }
+`;
+
+export const GET_COMPANY_BY_ID  = gql`
+query GetCompanyById($companyId: ID!) {
+  getCompanyById(companyId: $companyId) {
+    id
+    name
+    description
+    size
+    field
+    locationId
+    idDel
+    location {
+      _id
+      address
+      city
+      country
+      idDel
+    }
+  }
+}
 `;
