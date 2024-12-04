@@ -7,7 +7,8 @@ import Link from 'next/link'
 import { useAuth } from '#/shared/hook/use-auth'
 import { APPLY_JOB } from '#/shared/graphql/queries/application-queries'
 import { useMutation } from '@apollo/client'
-import { notification, Modal, Button } from 'antd'
+import { notification, Modal, Upload, Button } from 'antd'
+import { UploadOutlined } from '@ant-design/icons'
 import axios from 'axios'
 import { PDFViewerWrapper } from '#/app/(main)/(user)/candidate/cv-user/PDFViewerWrapper'
 import Image from 'next/image'
@@ -125,19 +126,7 @@ const JobDescription = ({ params }: { params: { id: string } }) => {
             <div className="grid grid-cols-3 gap-6">
                 <div className="col-span-2 bg-white p-6 rounded-lg shadow-lg">
                     <h2 className="text-2xl font-bold mb-4">Chi tiết tin tuyển dụng</h2>
-                    <h3 className="text-lg font-semibold mb-2">Mô tả công việc</h3>
-                    <p className="text-gray-600 mb-4">{job?.description}</p>
-
-                    <h3 className="text-lg font-semibold mb-2">Yêu cầu công việc</h3>
-                    <ul className="list-disc pl-5 text-gray-600">
-                        {job?.requirements?.length > 0 ? (
-                            job.requirements.map((req: string, index: number) => (
-                                <li key={index}>{req}</li>
-                            ))
-                        ) : (
-                            <li>Không có yêu cầu cụ thể.</li>
-                        )}
-                    </ul>
+                    <div className="text-gray-600 mb-4" dangerouslySetInnerHTML={{ __html: job?.description }} />
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-lg">
                     <div className="text-center">
