@@ -1,6 +1,6 @@
+"use client";
 // pages/companies/[id]/index.tsx
 import React from 'react';
-import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
 import { FaMapMarkerAlt, FaUsers, FaBriefcase, FaGlobe, FaBuilding } from 'react-icons/fa';
 import Image from 'next/image';
@@ -12,7 +12,7 @@ interface Location {
   address: string;
   city: string;
   country: string;
-  idDel: boolean;
+  isDel: boolean;
 }
 
 interface Company {
@@ -22,14 +22,13 @@ interface Company {
   size: string;
   field: string;
   locationId: string;
-  idDel: boolean;
+  isDel: boolean;
   location: Location;
   imageUrl?: string;
 }
 
-const CompanyDetail: React.FC = () => {
-  const router = useRouter();
-  const { id } = router.query;
+const CompanyDetail =  ({ params }: { params: { id: string } }) =>  {
+  const { id } = params;
   if (!id) {
     return <div>Đang tải...</div>;
   }
@@ -129,13 +128,6 @@ const CompanyDetail: React.FC = () => {
                   <p className="text-gray-600">{company.field || "Chưa cập nhật"}</p>
                 </div>
               </div>
-
-              <Link
-                href={`/companies/${company.id}/jobs`}
-                className="block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors mt-6"
-              >
-                Xem việc làm tại {company.name}
-              </Link>
             </div>
           </div>
 

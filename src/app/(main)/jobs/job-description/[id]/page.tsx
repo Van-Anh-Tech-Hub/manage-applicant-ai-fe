@@ -150,12 +150,12 @@ const JobDescription = ({ params }: { params: { id: string } }) => {
                             <strong>Địa điểm:</strong> {job?.location?.address || 'Không rõ'}
                         </li>
                     </ul>
-                    <a
-                        href={`/company/${job?.company?._id}`}
+                    <Link
+                        href={`/companies/${job?.companyId}`}
                         className="text-green-600 hover:underline block mt-4 text-center"
                     >
                         Xem trang công ty
-                    </a>
+                    </Link>
                 </div>
             </div>
             <div className="grid grid-cols-3 gap-6 mt-6">

@@ -9,7 +9,7 @@ interface Location {
   address: string;
   city: string;
   country: string;
-  idDel: boolean;
+  isDel: boolean;
 }
 
 interface Company {
@@ -19,7 +19,7 @@ interface Company {
   size: string;
   field: string;
   locationId: string;
-  idDel: boolean;
+  isDel: boolean;
   location: Location;
   imageUrl?: string;
 }

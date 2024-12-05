@@ -22,13 +22,13 @@ export const GET_ALL_COMPANIES = gql`
       size
       field
       locationId
-      idDel
+      isDel
         location {
       _id
       address
       city
       country
-      idDel
+      isDel
     }
     }
   }
@@ -43,13 +43,13 @@ query GetCompanyById($companyId: ID!) {
     size
     field
     locationId
-    idDel
+    isDel
     location {
       _id
       address
       city
       country
-      idDel
+      isDel
     }
   }
 }
